@@ -81,15 +81,25 @@ export function TransactionTable() {
         )}
       </CardHeader>
       <CardContent className="p-0">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-sm">
-            <thead className="bg-gray-50 text-gray-600 font-medium border-b border-gray-200">
+        <div className="w-full overflow-x-auto">
+          <table className="min-w-full text-left text-sm">
+            <thead className="bg-[var(--background)] text-white font-medium border-b border-blue-200">
               <tr>
-                <th className="px-6 py-3">Date</th>
-                <th className="px-6 py-3">Description</th>
-                <th className="px-6 py-3">Status</th>
-                <th className="px-6 py-3">Category</th>
-                <th className="px-6 py-3 text-right">Amount</th>
+                <th className="px-3 py-2 md:px-6 md:py-3 text-white text-xs md:text-sm">
+                  Date
+                </th>
+                <th className="px-3 py-2 md:px-6 md:py-3 text-white text-xs md:text-sm">
+                  Description
+                </th>
+                <th className="px-3 py-2 md:px-6 md:py-3 text-white text-xs md:text-sm">
+                  Status
+                </th>
+                <th className="px-3 py-2 md:px-6 md:py-3 text-white text-xs md:text-sm">
+                  Category
+                </th>
+                <th className="px-3 py-2 md:px-6 md:py-3 text-right text-white text-xs md:text-sm">
+                  Amount
+                </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
@@ -98,13 +108,13 @@ export function TransactionTable() {
                   key={txn.id}
                   className="hover:bg-gray-50/50 transition-colors"
                 >
-                  <td className="px-6 py-4 text-gray-500 whitespace-nowrap font-mono text-xs">
+                  <td className="px-3 py-2 md:px-6 md:py-4 text-white whitespace-nowrap font-mono text-xs md:text-sm">
                     {txn.date}
                   </td>
-                  <td className="px-6 py-4 font-medium text-gray-900">
+                  <td className="px-3 py-2 md:px-6 md:py-4 font-medium text-white text-xs md:text-sm">
                     {txn.description}
                   </td>
-                  <td className="px-6 py-4">
+                  <td className="px-3 py-2 md:px-6 md:py-4">
                     <Badge
                       variant={
                         txn.status === "Cleared"
@@ -117,16 +127,16 @@ export function TransactionTable() {
                       {txn.status}
                     </Badge>
                   </td>
-                  <td className="px-6 py-4">
+                  <td className="px-3 py-2 md:px-6 md:py-4 text-white text-xs md:text-sm">
                     {txn.category ? (
                       <Badge variant="default">{txn.category}</Badge>
                     ) : (
-                      <span className="text-gray-400 italic text-xs">
+                      <span className="text-white/70 italic text-xs">
                         Uncategorized
                       </span>
                     )}
                   </td>
-                  <td className="px-6 py-4 text-right font-mono text-gray-700">
+                  <td className="px-3 py-2 md:px-6 md:py-4 text-right font-mono text-white whitespace-nowrap text-xs md:text-sm">
                     {formatCurrency(txn.amount, txn.currency)}
                   </td>
                 </tr>
